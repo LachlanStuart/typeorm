@@ -1548,7 +1548,7 @@ export class PostgresQueryRunner extends BaseQueryRunner implements QueryRunner 
                             tableColumn.isGenerated = true;
                             tableColumn.generationStrategy = "uuid";
                         } else {
-                            tableColumn.default = dbColumn["column_default"].replace(/::.*/, "");
+                            tableColumn.default = dbColumn["column_default"].replace(/::[\w\s]*/, "");
                         }
                     }
 
